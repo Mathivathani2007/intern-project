@@ -274,7 +274,7 @@ function App() {
 
       {!user ? (
         /* 🔒 AUTHENTICATION FLOW LAYER (Logged-Out View) */
-        <div className="auth-container" style={{ maxWidth: '450px', margin: '60px auto', padding: '30px', background: '#fff', borderRadius: '8px', boxShadow: '0 4px 15px rgba(0,0,0,0.1)', fontFamily: 'sans-serif' }}>
+        <div className="auth-container surface-card">
           
           {/* Email/Password Block */}
           <h2>{isLogin ? 'Welcome Back' : 'Create Account'}</h2>
@@ -374,7 +374,7 @@ function App() {
           )}
 
           {currentView === 'booking' && (
-            <div style={{ background: '#fff', padding: '30px', borderRadius: '8px' }}>
+            <div className="surface-card">
               <h2>📆 Appointment Scheduling Interface</h2>
               <p>Appointment booking management services connected asynchronously to localized instances.</p>
             </div>
@@ -395,18 +395,18 @@ function App() {
           )}
 
           {currentView === 'admin' && (
-            <div style={{ background: '#fff', padding: '30px', borderRadius: '8px' }}>
+            <div className="surface-card">
               <h2>🛡️ Master Project Control Hub</h2>
               
               {/* Realtime Database Feature Integration */}
-              <div style={{ background: '#f9f9f9', padding: '20px', borderRadius: '6px', marginBottom: '20px' }}>
+              <div className="surface-panel">
                 <h4>📡 Realtime Database Messaging Tunnel</h4>
                 <form onSubmit={handleWriteRealtimeData} style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
                   <input type="text" placeholder="Type a sync string..." value={liveMessage} onChange={(e) => setLiveMessage(e.target.value)} style={{ flex: 1, padding: '10px' }} />
                   <button type="submit" style={{ padding: '10px', background: '#009688', color: '#fff', border: 'none' }}>Set String</button>
                 </form>
                 <div><strong>Current Cluster Value:</strong> <span style={{ color: '#007bff' }}>{liveData}</span></div>
-                <button onClick={handleDeleteRealtimeData} style={{ marginTop: '10px', padding: '6px 12px', background: '#ff9800', border: 'none', color: '#fff', cursor: 'pointer' }}>Flush Realtime Path</button>
+                <button onClick={handleDeleteRealtimeData} className="danger-button" style={{ marginTop: '10px' }}>Flush Realtime Path</button>
               </div>
             </div>
           )}

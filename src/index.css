@@ -371,3 +371,29 @@ button.danger:hover {
     grid-template-columns: 1.5fr 1fr;
   }
 }
+
+.surface-card {
+  background: #fff;
+  color: #111827;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.surface-card h2,
+.surface-card h3,
+.surface-card h4,
+.surface-card p,
+.surface-card label,
+.surface-card span,
+.surface-card strong {
+  color: #111827;
+}
+
+.surface-panel {
+  background: #f9fafb;
+  color: #1f2937;
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
