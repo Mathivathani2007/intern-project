@@ -18,6 +18,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+html, body, #root {
+  min-height: 100%;
+}
+
 body {
   background: var(--bg-color);
   background-image: 
@@ -26,20 +30,16 @@ body {
     radial-gradient(at 100% 0%, hsla(339,49%,30%,0.3) 0, transparent 50%);
   background-attachment: fixed;
   color: var(--text-main);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 #root {
   width: 100%;
   max-width: 1200px;
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  margin: 0 auto;
 }
 
 .card {
@@ -50,13 +50,17 @@ body {
   border-radius: 16px;
   padding: 2.5rem;
   width: 100%;
-  max-width: 450px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   animation: slideUp 0.5s ease-out forwards;
 }
 
 .card.large {
   max-width: 800px;
+}
+
+.auth-card {
+  max-width: 450px;
+  margin: 0 auto;
 }
 
 @keyframes slideUp {
@@ -243,4 +247,127 @@ button.danger:hover {
 @keyframes slideIn {
   from { transform: translateX(100%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
+}
+
+.student-records {
+  max-width: 700px;
+  width: 100%;
+}
+
+.section-header {
+  margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.student-form {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.record-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.record-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.record-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.record-title strong {
+  font-size: 1rem;
+}
+
+.record-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.record-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.primary-button {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border-radius: 10px;
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.secondary-button {
+  width: auto;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text-main);
+}
+
+.danger-button {
+  width: auto;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.9);
+  border: none;
+  color: white;
+}
+
+.section-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.profile-form {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1.5fr 1fr;
+  }
 }

@@ -82,62 +82,72 @@ export default function StudentRecords() {
   }, []);
 
   return (
-    <div style={{ padding: '20px', maxWidth: '420px' }}>
-      <h2>📚 Task 29: Student Record Manager</h2>
-      <form onSubmit={handleSave} style={{ marginBottom: '20px' }}>
-        <div style={{ marginBottom: '10px' }}>
+    <div className="student-records card">
+      <div className="section-header">
+        <h2>📚 Student Record Manager</h2>
+        <p className="section-subtitle">Add, update, and remove student records with a clean, responsive form layout.</p>
+      </div>
+
+      <form onSubmit={handleSave} className="student-form">
+        <div className="form-group">
+          <label>Student Name</label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder='Student Name'
-            style={{ width: '100%', padding: '8px' }}
+            placeholder="Student Name"
+            required
           />
         </div>
-        <div style={{ marginBottom: '10px' }}>
+        <div className="form-group">
+          <label>Roll Number</label>
           <input
             value={roll}
             onChange={(e) => setRoll(e.target.value)}
-            placeholder='Roll Number'
-            style={{ width: '100%', padding: '8px' }}
+            placeholder="Roll Number"
+            required
           />
         </div>
-        <div style={{ marginBottom: '10px' }}>
+        <div className="form-group">
+          <label>Grade</label>
           <input
             value={grade}
             onChange={(e) => setGrade(e.target.value)}
-            placeholder='Grade'
-            style={{ width: '100%', padding: '8px' }}
+            placeholder="Grade"
           />
         </div>
-        <div style={{ marginBottom: '10px' }}>
+        <div className="form-group">
+          <label>Department</label>
           <input
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
-            placeholder='Department'
-            style={{ width: '100%', padding: '8px' }}
+            placeholder="Department"
           />
         </div>
-        <button type='submit' style={{ padding: '10px 16px', width: '100%', cursor: 'pointer' }}>
+        <button type="submit" className="primary-button">
           {editingId ? 'Update Record' : 'Add Student Record'}
         </button>
       </form>
 
-      <div>
+      <div className="record-list">
         {records.length === 0 ? (
-          <p>No student records found.</p>
+          <p className="empty-state">No student records found.</p>
         ) : (
-          <div>
-            {records.map((record) => (
-              <div key={record.id} style={{ marginBottom: '12px', padding: '12px', background: '#1f1f1f', borderRadius: '10px' }}>
-                <div style={{ marginBottom: '6px' }}><strong>{record.name}</strong> - {record.roll}</div>
-                <div style={{ fontSize: '0.9rem', color: '#ccc' }}>{record.grade || 'Grade N/A'} • {record.department || 'Department N/A'}</div>
-                <div style={{ display: 'flex', gap: '8px', marginTop: '8px' }}>
-                  <button onClick={() => handleEdit(record)} style={{ cursor: 'pointer' }}>Edit</button>
-                  <button onClick={() => handleDelete(record.id)} style={{ cursor: 'pointer' }}>Delete</button>
-                </div>
+          records.map((record) => (
+            <div key={record.id} className="record-item">
+              <div className="record-title">
+                <strong>{record.name}</strong>
+                <span>{record.roll}</span>
               </div>
-            ))}
-          </div>
+              <div className="record-metadata">
+                <span>{record.grade || 'Grade N/A'}</span>
+                <span>{record.department || 'Department N/A'}</span>
+              </div>
+              <div className="record-actions">
+                <button type="button" className="secondary-button" onClick={() => handleEdit(record)}>Edit</button>
+                <button type="button" className="danger-button" onClick={() => handleDelete(record.id)}>Delete</button>
+              </div>
+            </div>
+          ))
         )}
       </div>
     </div>

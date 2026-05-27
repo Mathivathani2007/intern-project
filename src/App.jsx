@@ -327,19 +327,35 @@ function App() {
           {/* Dynamic Render Controller */}
           {currentView === 'dashboard' && (
             <div>
+              <div className="dashboard-grid">
+            <div>
               <h2>📋 Student Records & Administration</h2>
               <StudentRecords user={user} />
-              
-              <div style={{ marginTop: '30px', padding: '20px', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                <h3>👤 Profile Details Management (Firestore CRUD)</h3>
-                <form onSubmit={handleUpdateProfile} style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
-                  <input type="text" placeholder="Display Name" value={profileData.displayName} onChange={(e) => setProfileData({...profileData, displayName: e.target.value})} style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }} />
-                  <input type="text" placeholder="Role" value={profileData.role} onChange={(e) => setProfileData({...profileData, role: e.target.value})} style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }} />
-                  <input type="text" placeholder="Company" value={profileData.company} onChange={(e) => setProfileData({...profileData, company: e.target.value})} style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }} />
-                  <button type="submit" style={{ padding: '10px 20px', background: '#4CAF50', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Save Changes</button>
-                  <button type="button" onClick={handleDeleteProfile} style={{ padding: '10px 20px', background: '#f44336', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Delete Profile Info</button>
-                </form>
-              </div>
+            </div>
+
+            <div className="profile-card section-card">
+              <h3>👤 Profile Details Management</h3>
+              <p className="section-subtitle">Update your Firestore profile details with one click.</p>
+              <form onSubmit={handleUpdateProfile} className="profile-form">
+                <div className="form-group">
+                  <label>Display Name</label>
+                  <input type="text" placeholder="Display Name" value={profileData.displayName} onChange={(e) => setProfileData({...profileData, displayName: e.target.value})} />
+                </div>
+                <div className="form-group">
+                  <label>Role</label>
+                  <input type="text" placeholder="Role" value={profileData.role} onChange={(e) => setProfileData({...profileData, role: e.target.value})} />
+                </div>
+                <div className="form-group">
+                  <label>Company</label>
+                  <input type="text" placeholder="Company" value={profileData.company} onChange={(e) => setProfileData({...profileData, company: e.target.value})} />
+                </div>
+                <div className="button-row">
+                  <button type="submit" className="primary-button">Save Changes</button>
+                  <button type="button" className="danger-button" onClick={handleDeleteProfile}>Delete Profile Info</button>
+                </div>
+              </form>
+            </div>
+          </div>
             </div>
           )}
 
